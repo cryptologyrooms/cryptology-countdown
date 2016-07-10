@@ -46,6 +46,16 @@ void display_setup()
 	{
 		digits[i] = SSEG_CreateDigit(i, &s_segment_map, false);
 	}
+
+	for(i = 0; i < 2; i++)
+	{
+		pinMode(s_display_pins[i].data, OUTPUT);
+		pinMode(s_display_pins[i].oe, OUTPUT);
+		pinMode(s_display_pins[i].latch, OUTPUT);
+		pinMode(s_display_pins[i].clk, OUTPUT);
+		pinMode(s_display_pins[i].clr, OUTPUT);
+		digitalWrite(s_display_pins[i].clr, HIGH);
+	}
 }
 
 void display_update(int const * const values, int display_number)
@@ -55,7 +65,7 @@ void display_update(int const * const values, int display_number)
 	int i;
 	digitalWrite(pins.latch, LOW);
 	uint8_t segment_data;
-	for (i = pins.ndigits-1; i >= 0; i--)
+	for (i = 0; i < pins.ndigits; i++)
 	{
 		segment_data = digits[values[i]];
 
