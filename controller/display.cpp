@@ -65,7 +65,7 @@ void display_update(int const * const values, int display_number)
 	int i;
 	digitalWrite(pins.latch, LOW);
 	uint8_t segment_data;
-	for (i = 0; i < pins.ndigits; i++)
+	for (i = 0; i < 3; i++)
 	{
 		segment_data = digits[values[i]];
 
