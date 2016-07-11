@@ -30,3 +30,8 @@
 
 # KiCAD backups
 *.bak
+*.kicad_pcb-bak
+
+# KiCAD outputs
+*.net
+
